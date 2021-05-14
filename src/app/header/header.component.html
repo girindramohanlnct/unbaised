@@ -1,0 +1,81 @@
+<header>
+    <nav>
+      <div class="right">
+        <ul>
+          <li class="logo">
+            <img style="height: 10vh" src="../../assets/unbaised2.jpg" />
+          </li>
+          <li [ngClass]="isShow === true ? 'show' : 'hide'" class="items">
+            <a
+              class="active"
+              [routerLink]="['/home']"
+              routerLinkActive="router-link-active"
+              [class.active]="activeTab === 'home'"
+              (click)="getActiveTab('home')"
+              >Home</a
+            >
+          </li>
+          <li [ngClass]="isShow === true ? 'show' : 'hide'" class="items">
+            <a
+              [class.active]="activeTab === 'about'"
+              [routerLink]="['/about']"
+              routerLinkActive="router-link-active"
+              (click)="getActiveTab('about')"
+              href="#"
+              >About</a
+            >
+          </li>
+          <li [ngClass]="isShow === true ? 'show' : 'hide'" class="items">
+            <a
+              [class.active]="activeTab === 'contact'"
+              [routerLink]="['/contact']"
+              routerLinkActive="router-link-active"
+              (click)="getActiveTab('contact')"
+              href="#"
+              >Contact</a
+            >
+          </li>
+          <li *ngIf="!userIsAuthenticated" [ngClass]="isShow === true ? 'show' : 'hide'" class="items">
+            <a
+              [routerLink]="['/login']"
+              routerLinkActive="router-link-active"
+              [class.active]="activeTab === 'login'"
+              (click)="getActiveTab('login')"
+              >Login</a
+            >
+          </li>
+          <li *ngIf="!userIsAuthenticated" [ngClass]="isShow === true ? 'show' : 'hide'" class="items">
+            <a
+              [routerLink]="['/signup']"
+              routerLinkActive="router-link-active"
+              [class.active]="activeTab === 'signup'"
+              (click)="getActiveTab('signup')"
+              >Signup</a
+            >
+          </li>
+          <li [ngClass]="isShow === true ? 'show' : 'hide'" *ngIf="userIsAuthenticated"  class="items">
+            <a
+            (click)="onLogout()"
+              routerLinkActive="router-link-active"
+              [class.active]="activeTab === 'logout'"
+              (click)="getActiveTab('logout')"
+              >Logout</a
+            >
+          </li>
+          <!-- <li [ngClass]="isShow === true ? 'show' : 'hide'" class="items">
+            <a
+              [class.active]="activeTab === 'login'"
+              (click)="getActiveTab('login')"
+              >Login</a
+            >
+          </li> -->
+          <li (click)="hamClick()" class="ham checkbtn">
+            <i
+              
+              class="fas fa-bars"
+            ></i>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>

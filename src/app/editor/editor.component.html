@@ -1,0 +1,35 @@
+<div class="container">
+    <form [formGroup]="editform" (ngSubmit)="onSubmit()">
+      <input required formControlName="title" type="text" class="form-control" placeholder="title" />
+      <br />
+      <input required formControlName="description" type="text" class="form-control" placeholder="Description" />
+      <br />
+      <input required formControlName="keyword" type="text" class="form-control" placeholder="Keyword" />
+      <br />
+      <select required formControlName="type" value="Category" class="form-control form-control-lg">
+        <option>Technology(Tutorial)</option>
+        <option>Entertainment</option>
+        <option>Politics</option>
+        <option>History</option>
+      </select>
+     
+      <input formControlName="subTopic" type="text" class="form-control" placeholder="SubTopic" />
+      <br>
+      <input formControlName="videoUrl" type="text" class="form-control" placeholder="Video URL" />
+      <br />
+      <input required formControlName="nextPage" type="text" class="form-control" placeholder="Next" />
+      <br />
+      <input required formControlName="previousPage" type="text" class="form-control" placeholder="Previous" />
+      <br />
+      <quill-editor
+        [styles]="editorStyle"
+        formControlName="editor"
+      ></quill-editor>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  
+    <div>
+      <p [innerHTML]="editorContent"></p>
+    </div>
+  </div>
+  
